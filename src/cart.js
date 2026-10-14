@@ -27,12 +27,18 @@ function changeQuantity(cart, productId, quantity) {
   return cart.map((item) => (item.id === productId ? { ...item, quantity } : item));
 }
 
+function removeFromCart(cart, productId) {
+  return cart.filter((item) => item.id !== productId);
+}
+
+function calculateCartSubtotal(cart) {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+
 function notImplemented() {
   throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
 }
 
-function removeFromCart() { return notImplemented(); }
-function calculateCartSubtotal() { return notImplemented(); }
 function calculateOrderTotal() { return notImplemented(); }
 
 const cartApi = { addToCart, changeQuantity, removeFromCart, calculateCartSubtotal, calculateOrderTotal };
