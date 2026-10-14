@@ -18,11 +18,19 @@ function addToCart(cart, product, quantity) {
   return cart.map((item) => (item.id === product.id ? { ...item, quantity: nextQuantity } : item));
 }
 
+function changeQuantity(cart, productId, quantity) {
+  const existing = cart.find((item) => item.id === productId);
+  if (!existing) return cart;
+
+  assertValidQuantity(quantity, existing.stock);
+
+  return cart.map((item) => (item.id === productId ? { ...item, quantity } : item));
+}
+
 function notImplemented() {
   throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
 }
 
-function changeQuantity() { return notImplemented(); }
 function removeFromCart() { return notImplemented(); }
 function calculateCartSubtotal() { return notImplemented(); }
 function calculateOrderTotal() { return notImplemented(); }
