@@ -31,7 +31,21 @@ describe('sortProductsByPrice', () => {
     expect(ids(sortProductsByPrice(input, 'desc'))).toEqual([2, 5, 6]);
   });
 
-  test.todo("'asc' does not change the source array [1, 3, 4]");
-  test.todo("'desc' does not change the source array [1, 3, 4]");
-  test.todo('default direction does not change the source array of all products');
+  test("'asc' does not change the source array [1, 3, 4]", () => {
+    const input = pick([1, 3, 4]);
+    sortProductsByPrice(input, 'asc');
+    expect(ids(input)).toEqual([1, 3, 4]);
+  });
+
+  test("'desc' does not change the source array [1, 3, 4]", () => {
+    const input = pick([1, 3, 4]);
+    sortProductsByPrice(input, 'desc');
+    expect(ids(input)).toEqual([1, 3, 4]);
+  });
+
+  test('default direction does not change the source array of all products', () => {
+    const input = [...products];
+    sortProductsByPrice(input);
+    expect(ids(input)).toEqual([1, 2, 3, 4, 5, 6]);
+  });
 });
