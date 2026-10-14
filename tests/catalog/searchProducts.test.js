@@ -1,10 +1,21 @@
 const products = require('../../src/data/products');
 const { searchProducts } = require('../../src/catalog');
 
+const ids = (items) => items.map(({ id }) => id);
+
 describe('searchProducts', () => {
-  test.todo("'Наушники' возвращает товар с ID 1");
-  test.todo("'Чистый код' возвращает товар с ID 6");
-  test.todo("'Настольная лампа' возвращает товар с ID 4");
+  test("'Наушники' возвращает товар с ID 1", () => {
+    expect(ids(searchProducts(products, 'Наушники'))).toEqual([1]);
+  });
+
+  test("'Чистый код' возвращает товар с ID 6", () => {
+    expect(ids(searchProducts(products, 'Чистый код'))).toEqual([6]);
+  });
+
+  test("'Настольная лампа' возвращает товар с ID 4", () => {
+    expect(ids(searchProducts(products, 'Настольная лампа'))).toEqual([4]);
+  });
+
   test.todo("'javascript' возвращает товар с ID 3");
   test.todo("'ЧЕХОЛ' возвращает товар с ID 5");
   test.todo("'наушники' возвращает товар с ID 1");
