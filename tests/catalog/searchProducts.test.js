@@ -16,9 +16,18 @@ describe('searchProducts', () => {
     expect(ids(searchProducts(products, 'Настольная лампа'))).toEqual([4]);
   });
 
-  test.todo("'javascript' returns the product with ID 3");
-  test.todo("'ЧЕХОЛ' returns the product with ID 5");
-  test.todo("'наушники' returns the product with ID 1");
+  test("'javascript' returns the product with ID 3", () => {
+    expect(ids(searchProducts(products, 'javascript'))).toEqual([3]);
+  });
+
+  test("'ЧЕХОЛ' returns the product with ID 5", () => {
+    expect(ids(searchProducts(products, 'ЧЕХОЛ'))).toEqual([5]);
+  });
+
+  test("'наушники' returns the product with ID 1", () => {
+    expect(ids(searchProducts(products, 'наушники'))).toEqual([1]);
+  });
+
   test.todo('empty string returns products with IDs [1, 2, 3, 4, 5, 6]');
   test.todo('whitespace-only string returns products with IDs [1, 2, 3, 4, 5, 6]');
   test.todo("'\\t\\n' returns products with IDs [1, 2, 3, 4, 5, 6]");
