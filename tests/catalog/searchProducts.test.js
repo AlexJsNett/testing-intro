@@ -28,7 +28,15 @@ describe('searchProducts', () => {
     expect(ids(searchProducts(products, 'наушники'))).toEqual([1]);
   });
 
-  test.todo('empty string returns products with IDs [1, 2, 3, 4, 5, 6]');
-  test.todo('whitespace-only string returns products with IDs [1, 2, 3, 4, 5, 6]');
-  test.todo("'\\t\\n' returns products with IDs [1, 2, 3, 4, 5, 6]");
+  test('empty string returns products with IDs [1, 2, 3, 4, 5, 6]', () => {
+    expect(ids(searchProducts(products, ''))).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
+  test('whitespace-only string returns products with IDs [1, 2, 3, 4, 5, 6]', () => {
+    expect(ids(searchProducts(products, '   '))).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
+  test("'\\t\\n' returns products with IDs [1, 2, 3, 4, 5, 6]", () => {
+    expect(ids(searchProducts(products, '\t\n'))).toEqual([1, 2, 3, 4, 5, 6]);
+  });
 });
