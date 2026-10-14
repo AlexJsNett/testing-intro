@@ -14,9 +14,18 @@ describe('getProductById', () => {
     expect(getProductById(products, 6)).toBe(products[5]);
   });
 
-  test.todo('ID 0 returns null');
-  test.todo('ID 999 returns null');
-  test.todo('ID -1 returns null');
+  test('ID 0 returns null', () => {
+    expect(getProductById(products, 0)).toBeNull();
+  });
+
+  test('ID 999 returns null', () => {
+    expect(getProductById(products, 999)).toBeNull();
+  });
+
+  test('ID -1 returns null', () => {
+    expect(getProductById(products, -1)).toBeNull();
+  });
+
   test.todo("string ID '1' returns null");
   test.todo('ID undefined returns null');
   test.todo('ID NaN returns null');
