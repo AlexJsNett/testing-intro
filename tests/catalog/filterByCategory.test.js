@@ -28,7 +28,15 @@ describe('filterByCategory', () => {
     expect(ids(filterByCategory(products, 'home'))).toEqual([4, 5]);
   });
 
-  test.todo("'clothes' returns an empty array");
-  test.todo("'toys' returns an empty array");
-  test.todo("'sports' returns an empty array");
+  test("'clothes' returns an empty array", () => {
+    expect(filterByCategory(products, 'clothes')).toEqual([]);
+  });
+
+  test("'toys' returns an empty array", () => {
+    expect(filterByCategory(products, 'toys')).toEqual([]);
+  });
+
+  test("'sports' returns an empty array", () => {
+    expect(filterByCategory(products, 'sports')).toEqual([]);
+  });
 });
