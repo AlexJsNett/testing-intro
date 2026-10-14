@@ -16,9 +16,18 @@ describe('filterByCategory', () => {
     expect(ids(filterByCategory(products, ''))).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
-  test.todo("'electronics' returns products with IDs [1, 2]");
-  test.todo("'books' returns products with IDs [3, 6]");
-  test.todo("'home' returns products with IDs [4, 5]");
+  test("'electronics' returns products with IDs [1, 2]", () => {
+    expect(ids(filterByCategory(products, 'electronics'))).toEqual([1, 2]);
+  });
+
+  test("'books' returns products with IDs [3, 6]", () => {
+    expect(ids(filterByCategory(products, 'books'))).toEqual([3, 6]);
+  });
+
+  test("'home' returns products with IDs [4, 5]", () => {
+    expect(ids(filterByCategory(products, 'home'))).toEqual([4, 5]);
+  });
+
   test.todo("'clothes' returns an empty array");
   test.todo("'toys' returns an empty array");
   test.todo("'sports' returns an empty array");
